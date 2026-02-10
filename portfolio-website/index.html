@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abdul Rehman - Software Engineer & Data Science Enthusiast. 3rd-semester SE student at UOL specializing in Machine Learning and Data Analysis.">
+    <meta name="keywords" content="Software Engineer, Data Science, Machine Learning, Python, Java, Web Development">
+    <meta name="author" content="Abdul Rehman">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Abdul Rehman - Software Engineer & Data Science Enthusiast">
+    <meta property="og:description" content="Building intelligent systems and extracting insights from complex data.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/profile.jpg">
+    
+    <title>Abdul Rehman | Software Engineer & Data Science Enthusiast</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="terminal-symbol">&gt;_</span>
+                <span class="brand-name">Abdul Rehman</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="tag-bracket">&lt;</span>
+                    <span class="tag-text">Welcome</span>
+                    <span class="tag-bracket">/&gt;</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="typing-text">Software Engineer &amp; Data Science Enthusiast</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Building intelligent systems and extracting insights from complex data.<br>
+                    3rd-semester SE student at UOL.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <span class="code-symbol">const</span> aboutMe = <span class="code-brace">{</span>
+                </span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <div class="profile-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                        </div>
+                        <div class="terminal-content">
+                            <p>Hello! I'm Abdul Rehman, a passionate Software Engineering student specializing in Data Science and Machine Learning.</p>
+                            
+                            <p>My journey began with building <strong>Java-based management systems</strong>, where I developed comprehensive applications with intuitive GUIs. As I dove deeper into the world of technology, I discovered my true passion: <strong>extracting insights from data</strong> and building intelligent systems.</p>
+                            
+                            <p>Today, I focus on <strong>Machine Learning</strong>, <strong>Web Scraping</strong>, and <strong>Data Analysis</strong>. I love automating data extraction processes and building models that solve real-world problems. Beyond coding, I'm passionate about <strong>teaching</strong> — I create educational content about Machine Learning for beginners on social media, breaking down complex concepts into digestible pieces.</p>
+                            
+                            <p>When I'm not coding, you'll find me exploring new ML algorithms, working on freelance data analysis projects, or planning my next educational content series.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <span class="code-brace">}</span>;
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <span class="code-symbol">function</span> getSkills() <span class="code-brace">{</span>
+                </span>
+                <h2 class="section-title">Core Competencies</h2>
+            </div>
+            <div class="skills-grid">
+                <!-- Programming Skills -->
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="category-title">Programming</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Science Skills -->
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="category-title">Data Science</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-table"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Scikit-learn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-spider"></i>
+                            <span>BeautifulSoup</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="category-title">Tools</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>NetBeans</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-sticky-note"></i>
+                            <span>Notion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <span class="code-brace">}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <span class="code-symbol">const</span> projects = <span class="code-brace">[</span>
+                </span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Employee Payroll Management System -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View project on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Swing</span>
+                            <span class="tag">GUI</span>
+                        </div>
+                        <h3 class="project-title">Employee Payroll Management System</h3>
+                        <p class="project-description">
+                            Comprehensive payroll management system with an intuitive GUI. Features include employee data management, salary calculations, attendance tracking, and report generation. Built with Java Swing for a desktop application.
+                        </p>
+                        <div class="project-footer">
+                            <a href="#" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Real-time Web Scraper -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-spider"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View project on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">BeautifulSoup</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                        <h3 class="project-title">Real-time Web Scraper</h3>
+                        <p class="project-description">
+                            Automated data extraction and processing tool that scrapes websites in real-time. Implements efficient parsing, data cleaning, and storage mechanisms. Perfect for market research and competitive analysis.
+                        </p>
+                        <div class="project-footer">
+                            <a href="#" class="project-btn">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: Machine Learning Education Series -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="View social media content">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Teaching</span>
+                            <span class="tag">Content Creation</span>
+                        </div>
+                        <h3 class="project-title">Machine Learning Education Series</h3>
+                        <p class="project-description">
+                            Educational content series for ML beginners on social media platforms. Breaking down complex Machine Learning concepts into easy-to-understand tutorials with practical examples and code demonstrations.
+                        </p>
+                        <div class="project-footer">
+                            <a href="#" class="project-btn">
+                                <i class="fas fa-external-link-alt"></i> View Content
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="section-footer">
+                <span class="code-brace">]</span>;
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <span class="code-symbol">const</span> experience = <span class="code-brace">{</span>
+                </span>
+                <h2 class="section-title">Experience &amp; Achievements</h2>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Freelance Data Analyst</h3>
+                            <span class="timeline-platform">
+                                <i class="fas fa-briefcase"></i> Fiverr
+                            </span>
+                        </div>
+                        <p class="timeline-description">
+                            Delivering professional data analysis services to clients worldwide. Specializing in data cleaning, exploratory data analysis, visualization, and insights generation. Successfully completed multiple projects with 5-star ratings.
+                        </p>
+                        <div class="timeline-achievements">
+                            <span class="achievement-badge">
+                                <i class="fas fa-check-circle"></i> Multiple 5-star reviews
+                            </span>
+                            <span class="achievement-badge">
+                                <i class="fas fa-chart-line"></i> Data Analysis Expert
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Content Creator & Educator</h3>
+                            <span class="timeline-platform">
+                                <i class="fas fa-graduation-cap"></i> Social Media
+                            </span>
+                        </div>
+                        <p class="timeline-description">
+                            Creating educational content about Machine Learning and Data Science for beginners. Sharing knowledge through engaging tutorials, code walkthroughs, and practical examples on TikTok and YouTube.
+                        </p>
+                        <div class="timeline-achievements">
+                            <span class="achievement-badge">
+                                <i class="fas fa-users"></i> Growing Community
+                            </span>
+                            <span class="achievement-badge">
+                                <i class="fas fa-video"></i> Educational Content
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Software Engineering Student</h3>
+                            <span class="timeline-platform">
+                                <i class="fas fa-university"></i> University of Lahore
+                            </span>
+                        </div>
+                        <p class="timeline-description">
+                            Currently in 3rd semester, focusing on software development, data structures, algorithms, and specializing in Data Science and Machine Learning. Active participant in coding competitions and hackathons.
+                        </p>
+                        <div class="timeline-achievements">
+                            <span class="achievement-badge">
+                                <i class="fas fa-trophy"></i> Academic Excellence
+                            </span>
+                            <span class="achievement-badge">
+                                <i class="fas fa-code"></i> Multiple Projects
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <span class="code-brace">}</span>;
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">
+                    <span class="code-symbol">function</span> getInTouch() <span class="code-brace">{</span>
+                </span>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Have a project in mind or want to collaborate? Let's connect!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                placeholder="Your Name"
+                                aria-label="Your name"
+                            >
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                placeholder="your.email@example.com"
+                                aria-label="Your email"
+                            >
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="6" 
+                                required 
+                                placeholder="Your message..."
+                                aria-label="Your message"
+                            ></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="social-links">
+                        <h3>Connect With Me</h3>
+                        <div class="social-grid">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/DataWithRehman1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                                <span>TikTok</span>
+                            </a>
+                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-email">
+                        <h3>Email</h3>
+                        <a href="mailto:contact@abdulrehman.dev" class="email-link">
+                            <i class="fas fa-envelope"></i>
+                            contact@abdulrehman.dev
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <span class="code-brace">}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Abdul Rehman. All rights reserved.</p>
+                <p class="footer-tagline">Built with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
