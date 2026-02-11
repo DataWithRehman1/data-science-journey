@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elite GPA/CGPA Sync - A high-performance, responsive web application for calculating academic grades">
+    <meta name="author" content="Ali Zain - SU72-BSAIM-F24-004">
+    <title>Elite GPA/CGPA Sync | Master Your Academic Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            min-height: 100vh;
+        }
+        
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        /* Neon Glow Effects */
+        .neon-cyan {
+            text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4, 0 0 30px #06b6d4;
+        }
+        
+        .neon-violet {
+            text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6;
+        }
+        
+        .btn-neon {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-neon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px #06b6d4, 0 0 40px #06b6d4;
+        }
+        
+        .btn-neon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-neon:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Gauge Meter */
+        .gauge-container {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            overflow: hidden;
+        }
+        
+        .gauge-fill {
+            transition: transform 0.5s ease;
+        }
+        
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch.active {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .toggle-switch.active .toggle-slider {
+            left: 32px;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Input Focus Glow */
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+        }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            border-radius: 10px;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .glass-card {
+                background: white;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    
+    <!-- Hero Section -->
+    <header class="text-center mb-12 fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-cyan">
+            <i class="fas fa-graduation-cap mr-3"></i>Elite GPA/CGPA Sync
+        </h1>
+        <p class="text-xl md:text-2xl text-cyan-300 mb-2">Master Your Academic Journey</p>
+        <p class="text-gray-400 text-sm md:text-base">Precision • Performance • Progress</p>
+    </header>
+
+    <!-- Mode Toggle -->
+    <div class="max-w-6xl mx-auto mb-8 glass-card rounded-2xl p-6 fade-in">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <span class="text-white font-semibold" id="modeLabel">Quick Semester GPA</span>
+                <div class="toggle-switch" id="modeToggle" onclick="toggleMode()">
+                    <div class="toggle-slider"></div>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button onclick="addSubject()" class="btn-neon bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-plus mr-2"></i>Add Subject
+                </button>
+                <button onclick="cloneLastRow()" class="btn-neon bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-copy mr-2"></i>Clone Row
+                </button>
+                <button onclick="clearAll()" class="btn-neon bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-trash mr-2"></i>Clear All
+                </button>
+                <button onclick="saveRecords()" class="btn-neon bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition no-print">
+                    <i class="fas fa-save mr-2"></i>Save Records
+                </button>
+                <button onclick="downloadPDF()" class="btn-neon bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition no-print">
+                    <i class="fas fa-download mr-2"></i>Download PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Calculator Container -->
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- Semester GPA Calculator (Default View) -->
+        <div id="sgpaView" class="glass-card rounded-2xl p-6 md:p-8 mb-8 fade-in">
+            <h2 class="text-2xl md:text-3xl font-bold text-violet-400 mb-6">
+                <i class="fas fa-calculator mr-2"></i>Semester GPA Calculator
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-white mb-6">
+                    <thead>
+                        <tr class="border-b border-gray-600">
+                            <th class="p-3 text-left">Subject Name</th>
+                            <th class="p-3 text-left">Marks (%)</th>
+                            <th class="p-3 text-left">Credit Hours</th>
+                            <th class="p-3 text-left">Grade</th>
+                            <th class="p-3 text-left">Grade Points</th>
+                            <th class="p-3 text-left no-print">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subjectsTableBody">
+                        <!-- Dynamic rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Results Display -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <p class="text-gray-400 mb-2">Total Credit Hours</p>
+                    <p class="text-4xl font-bold text-cyan-400" id="totalCredits">0</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <p class="text-gray-400 mb-2">Semester GPA</p>
+                    <p class="text-4xl font-bold neon-violet" id="sgpaResult">0.00</p>
+                </div>
+            </div>
+            
+            <!-- Visual GPA Gauge -->
+            <div class="mt-8 flex justify-center">
+                <div class="text-center">
+                    <div class="relative w-64 h-32 bg-gray-800 rounded-t-full overflow-hidden">
+                        <div id="gaugeBar" class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 origin-bottom-left transition-transform duration-500" style="transform: rotate(-90deg)"></div>
+                        <div class="absolute inset-0 flex items-end justify-center pb-4">
+                            <span class="text-3xl font-bold text-white z-10" id="gaugeValue">0.00</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mt-2">Performance Meter</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CGPA Calculator (Full History View) -->
+        <div id="cgpaView" class="glass-card rounded-2xl p-6 md:p-8 mb-8 fade-in hidden">
+            <h2 class="text-2xl md:text-3xl font-bold text-cyan-400 mb-6">
+                <i class="fas fa-chart-line mr-2"></i>Detailed CGPA History
+            </h2>
+            
+            <div id="semestersContainer">
+                <!-- Semesters will be added dynamically -->
+            </div>
+            
+            <button onclick="addSemester()" class="btn-neon bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-lg transition mt-4">
+                <i class="fas fa-plus mr-2"></i>Add Semester
+            </button>
+            
+            <!-- CGPA Results -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <p class="text-gray-400 mb-2">Total Semesters</p>
+                    <p class="text-4xl font-bold text-violet-400" id="totalSemesters">0</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <p class="text-gray-400 mb-2">Total Credits</p>
+                    <p class="text-4xl font-bold text-cyan-400" id="cgpaTotalCredits">0</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <p class="text-gray-400 mb-2">Cumulative CGPA</p>
+                    <p class="text-4xl font-bold neon-cyan" id="cgpaResult">0.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grading Scale Reference -->
+        <div class="glass-card rounded-2xl p-6 md:p-8 mb-8 fade-in">
+            <h3 class="text-xl font-bold text-white mb-4">
+                <i class="fas fa-book mr-2"></i>Grading Scale Reference
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-green-400 font-bold">A (4.00)</p>
+                    <p class="text-gray-400 text-sm">85-100%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-green-300 font-bold">A- (3.70)</p>
+                    <p class="text-gray-400 text-sm">80-84%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-cyan-400 font-bold">B+ (3.30)</p>
+                    <p class="text-gray-400 text-sm">75-79%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-cyan-300 font-bold">B (3.00)</p>
+                    <p class="text-gray-400 text-sm">70-74%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-blue-400 font-bold">B- (2.70)</p>
+                    <p class="text-gray-400 text-sm">65-69%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-yellow-400 font-bold">C+ (2.30)</p>
+                    <p class="text-gray-400 text-sm">60-64%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-yellow-300 font-bold">C (2.00)</p>
+                    <p class="text-gray-400 text-sm">55-59%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-orange-400 font-bold">D (1.00)</p>
+                    <p class="text-gray-400 text-sm">50-54%</p>
+                </div>
+                <div class="glass-card rounded-lg p-3">
+                    <p class="text-red-400 font-bold">F (0.00)</p>
+                    <p class="text-gray-400 text-sm">&lt;50%</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Professional Footer -->
+    <footer class="max-w-6xl mx-auto mt-12 glass-card rounded-2xl p-6 text-center text-gray-400">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div>
+                <p class="text-white font-semibold mb-1">Developer</p>
+                <p class="text-cyan-400">Ali Zain</p>
+            </div>
+            <div>
+                <p class="text-white font-semibold mb-1">Registration</p>
+                <p class="text-violet-400">SU72-BSAIM-F24-004</p>
+            </div>
+            <div>
+                <p class="text-white font-semibold mb-1">Support</p>
+                <a href="mailto:crafted.by.zain@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition">
+                    crafted.by.zain@gmail.com
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-4">
+            <p class="text-sm">© 2026 Elite GPA/CGPA Sync | All Rights Reserved</p>
+            <p class="text-xs mt-2 text-gray-500">Powered by Modern Web Technologies • Designed for Excellence</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
